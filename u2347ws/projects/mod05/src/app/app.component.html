@@ -1,0 +1,22 @@
+<h1 #title1 InTheBox='dashed 3px blue'>{{ title }}</h1>
+購買數量:
+<input type="number" [(ngModel)]="QTY">
+<CheckStock [QTY]="QTY" [Stock]="Stock">
+  <span #span class="lower">庫存不足，目前只有{{ Stock }}</span>
+  <span #span class="enough">目前庫存量足夠!</span>
+</CheckStock>
+
+
+<div>UpperCase: {{ vString | uppercase }}</div>
+<div>LowerCase: {{ vString | lowercase }}</div>
+<div>Date: {{ vDate | date }}</div>
+<div>Date 'shortDate': {{ vDate | date:'shortDate' }}</div>
+<div>Date 'yyyy-MM-dd': {{ vDate | date: 'yyyy-MM-dd' }}</div>
+<div>currency: {{ vMoney | currency }}</div>
+<div>number: {{ vNumber | number }}</div>
+<div>number: {{ vNumber | number: '1.0-0' }}</div>
+<div>number: {{ vNumber | number: '3.1-5' }}</div>
+<div>number: {{ vNumber2 | number }}</div>
+<div>number: {{ vNumber2 | number: '1.0-0' }}</div>
+<div>number: {{ vNumber2 | number: '3.1-5' }}</div>
+<div>number: {{ vNumber2 | number: '3.5-5' }}</div>

@@ -1,0 +1,11 @@
+<p>page5 works!</p>
+<div>
+    你選的是: {{result}}
+    <!-- 語法糖 一樣意思 -->
+    <!-- <select [ngModel]="result" (ngModelChange)="result=$event"> -->
+    <select [(ngModel)]="result">
+        <option value="0101">Java Script</option>
+        <option value="0102">Type Script</option>
+        <option value="0103">Angular</option>
+    </select>
+</div>
