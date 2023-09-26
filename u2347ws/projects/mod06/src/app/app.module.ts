@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CheckStockComponent } from './check-stock/check-stock.component';
-import { FormsModule } from '@angular/forms';
-import { InTheBoxDirective } from './in-the-box.directive';
-import { USD2TWDPipe } from './usd2-twd.pipe';
+import { Page1Component } from './page1/page1.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Page2Component } from './page2/page2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CheckStockComponent,
-    InTheBoxDirective,
-    USD2TWDPipe
+    Page1Component,
+    Page2Component
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [],

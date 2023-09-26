@@ -1,0 +1,79 @@
+<style>
+    .ng-valid[required],
+    .ng-valid.required {
+        border-left: 5px solid #42A948;
+        /* green */
+    }
+
+    .ng-invalid:not(form) {
+        border-left: 5px solid #a94442;
+        /* red */
+    }
+
+    .ng-dirty:not(form) {
+        border: 1px solid blue;
+    }
+</style>
+
+
+<div class="container" *ngIf="!submitted">
+    <h1>Meeting Room Form</h1>
+    <!-- 轉型成這樣ngForm -->
+    <form #roomForm="ngForm" (ngSubmit)="onSubmit(roomForm)">
+        <div class="form-group">
+            <label for="name">名稱</label>
+            <!-- 使用ngModel name記得要加 -->
+            <!-- 用#定義物件 as成ngModel，並具有ngModel的屬性invalid -->
+            <input type="text" class="form-control" name="name" [(ngModel)]="meetingRoom.name" #roomName="ngModel" required>
+            <div *ngIf="roomName.invalid" class="alert alert-danger">
+                名稱欄位不可空白
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="size">容納人數</label>
+            <select class="form-control" name="size" [(ngModel)]="meetingRoom.size">
+                <option *ngFor="let cap of capacity" [value]="cap">{{ cap }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="projector" [(ngModel)]="meetingRoom.projector">
+                <label class="form-check-label" for="projector">投影機</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="checkbox" class="form-check-input" name="TV" [(ngModel)]="meetingRoom.TV">
+                <label class="form-check-label" for="TV">電視</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="roomForm.form.invalid">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="newMeetingRoom() ; roomForm.reset()">新增會議室</button>
+    </form>
+    <div>ngForm.value: {{roomForm.value | json}}</div>
+    <div>meetingRoom: {{meetingRoom | json}}</div>
+</div>
+
+
+<!-- 用submitted來控制顯示哪一個表單 -->
+<div class="container" *ngIf="submitted">
+    <h2>以下是你提交的資訊:</h2>
+    <div class="table">
+        <div class="row">
+            <div class="col-4">名稱: </div>
+            <div class="col-6">{{meetingRoom.name}}</div>
+        </div>
+        <div class="row">
+            <div class="col-4">容納人數: </div>
+            <div class="col-6">{{meetingRoom.size}}</div>
+        </div>
+        <div class="row">
+            <div class="col-4">投影機: </div>
+            <div class="col-6">{{meetingRoom.projector}}</div>
+        </div>
+        <div class="row">
+            <div class="col-4">電視: </div>
+            <div class="col-6">{{meetingRoom.TV}}</div>
+        </div>
+    </div>
+    <div>
+          <button class="btn btn-primary" (click)="submitted=false">編修</button></div>
+</div>
