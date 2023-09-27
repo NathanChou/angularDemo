@@ -50,13 +50,19 @@
           </div>
         </div>
     </div>
-    <div class="form-group" ngModelGroup="rentDate" #rentDate="ngModelGroup">
+    <div class="form-group" ngModelGroup="rentDate" #rentDate="ngModelGroup" [CheckEndDate]="['startDate', 'endDate']">
       <label for="size">租借期間</label>
       <input type="date" class="form-control" placeholder="起始時間" required name="startDate" [(ngModel)]="rentRoom.startDate" #startDate="ngModel">
       <input type="date" class="form-control" placeholder="退還時間" required name="endDate" [(ngModel)]="rentRoom.endDate" #endDate="ngModel">
 
       <div *ngIf="rentDate.invalid && (rentDate.dirty || rentDate.touched)" class="alert alert-danger">
-        <div *ngIf="startDate.errors?.['required'] || endDate.errors?.['required']">租借期間必須填寫</div>
+        <div *ngIf="startDate.errors?.['required'] || endDate.errors?.['required']">
+          租借期間必須填寫
+        </div>
+
+        <div *ngIf="rentDate.errors?.['CheckEndDate']">
+          {{ rentDate.errors?.['CheckEndDate'].requiredValue }}
+        </div>
       </div>
 
     </div>
