@@ -55,6 +55,6 @@
     <button (click)="GetDownload(file.value)">
         下載檔案
     </button>
-    <progress [value]="progress"></progress>
+    <progress max="100" min="0" [value]="progress"></progress>
     <img #img width="600px">
 </div>

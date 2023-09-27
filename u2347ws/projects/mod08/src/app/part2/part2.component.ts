@@ -7,7 +7,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'part2',
   templateUrl: './part2.component.html',
-  styleUrls: ['./part2.component.css']
+  styleUrls: []
 })
 export class Part2Component {
 
@@ -81,7 +81,7 @@ export class Part2Component {
 
   GetDownload(file: string) {
     if (!file || file == "") return
-
+    this.progress = 0;
     this.connToAPI.GetDownload(file).subscribe({
       next: (event) => {
         if (event.type === HttpEventType.DownloadProgress) {

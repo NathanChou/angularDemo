@@ -1,0 +1,21 @@
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+        <th>#ID</th><th>名稱</th><th>容納人數</th><th>提供設備</th>
+        <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let mr of service.list">
+            <td>{{ mr.id }}</td>
+            <td>{{ mr.name }}</td>
+            <td>{{ mr.size }}</td>
+            <td>
+                {{ mr.projector ? '投影機 /' : ''}}{{ mr.tv ? '電視' : ''}}
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
