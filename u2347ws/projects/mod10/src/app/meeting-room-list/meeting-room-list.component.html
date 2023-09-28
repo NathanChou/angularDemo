@@ -1,21 +1,22 @@
 <table class="table table-hover">
-
     <thead>
         <tr>
-        <th>#ID</th><th>名稱</th><th>容納人數</th><th>提供設備</th>
-        <th></th>
+            <th>#ID</th>
+            <th>名稱</th>
+            <th>容納人數</th>
+            <th>提供設備</th>
+            <th><i class="fa-solid fa-plus" (click)="onInsert()"></i></th>
         </tr>
     </thead>
-
     <tbody>
-        <tr *ngFor="let mr of service.list">
-            <td>{{ mr.id }}</td>
-            <td>{{ mr.name }}</td>
-            <td>{{ mr.size }}</td>
+        <tr *ngFor="let mr of service.list" (click)="populateForm(mr)">
+            <td>{{mr.id}}</td>
+            <td>{{mr.name}}</td>
+            <td>{{mr.size}}</td>
             <td>
-                {{ mr.projector ? '投影機 /' : ''}}{{ mr.tv ? '電視' : ''}}
+                {{mr.projector? '投影機 / ': ''}} {{mr.tv? '電視': ''}}
             </td>
-            <td></td>
+            <td><i class="fa-solid fa-trash"  (click)="onDelete(mr)"></i></td>
         </tr>
     </tbody>
 </table>

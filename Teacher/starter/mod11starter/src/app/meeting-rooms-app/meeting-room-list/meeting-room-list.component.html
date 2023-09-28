@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>名稱</th>
+            <th>容納人數</th>
+            <th>提供設備</th>
+            <th><i class="fas fa-plus-square fa-lg text-primary" 
+                (click)="onInsert()"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mr of service.list">
+            <td (click)="populateForm(mr)">{{mr.id}}</td>
+            <td (click)="populateForm(mr)">{{mr.name}}</td>
+            <td (click)="populateForm(mr)">{{mr.size}}</td>
+            <td (click)="populateForm(mr)">
+                {{mr.projector? '投影機 / ': ''}} {{mr.tv? '電視': ''}}
+            </td>
+            <td><i class="far fa-trash-alt fa-lg text-danger"
+                (click)="onDelete(mr)"></i> </td>
+        </tr>
+    </tbody>
+</table>

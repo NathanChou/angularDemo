@@ -1,0 +1,46 @@
+<!-- <ul>
+    <li >
+        <a routerLink="/product/product/1" routerLinkActive="active">產品1</a>
+    </li>
+    <li>
+        <a routerLink="./product/2" routerLinkActive="active">產品2</a>
+    </li>
+    <li>
+        <a [routerLink]="['product',3]" routerLinkActive="active">產品3</a>
+    </li>
+    <li>
+        <a [routerLink]="['/','product','product',4]" routerLinkActive="active">產品4</a>
+    </li>
+    <li>
+        <button class="btn btn-link"  (click)="GoProd2(5)" >產品5</button>
+    </li>
+    <li>
+        <button class="btn btn-link" (click)="GoProd3(6)" routerLinkActive="active">產品6</button>
+    </li>
+</ul>
+
+<router-outlet></router-outlet> -->
+
+
+<ul>
+    <li >
+        <a routerLink="1" routerLinkActive="active">產品1</a>
+    </li>
+    <li>
+        <a routerLink="./2" routerLinkActive="active">產品2</a>
+    </li>
+    <li>
+        <a [routerLink]="[3]" routerLinkActive="active">產品3</a>
+    </li>
+    <li>
+        <a [routerLink]="['/', 'product', 4]" routerLinkActive="active">產品4</a>
+    </li>
+    <li>
+        <button class="btn btn-link"  (click)="GoProd2(5)" >產品5</button>
+    </li>
+    <li>
+        <button class="btn btn-link" (click)="GoProd3(6)" routerLinkActive="active">產品6</button>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>
