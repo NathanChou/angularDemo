@@ -4,5 +4,4 @@ export class MeetingRoom {
     size: number = 0;
     projector?: boolean;
     tv?:boolean;
-    
 }
